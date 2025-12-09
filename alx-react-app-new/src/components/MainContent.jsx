@@ -10,7 +10,7 @@ function MainContent() {
       borderRadius: '8px'
     }}>
       <h2 style={{ color: '#333' }}>Main Content Section</h2>
-      <p>This is where your main app content goes. You can add more details and features here.</p>
+      <p style = {{ color : '#333'> I love to visit New York, Paris, and Tokyo.</p>
     </main>
   );
 }
