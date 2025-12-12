@@ -20,7 +20,7 @@ export const useRecipeStore = create(
       // =========================
       //   RECIPE CRUD
       // =========================
-      addRecipe: (recipe) =>
+      setRecipe: (recipe) =>
         set((state) => ({
           recipes: [...state.recipes, recipe],
         })),
