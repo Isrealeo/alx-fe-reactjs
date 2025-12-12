@@ -46,7 +46,7 @@ export const useRecipeStore = create(
       setIngredientsFilter: (value) => set({ ingredientsFilter: value }),
       setTimeFilter: (value) => set({ timeFilter: value }),
 
-      getFilteredRecipes: () => {
+      getfilteredRecipes: () => {
         const { recipes, searchTerm, ingredientsFilter, timeFilter } = get();
 
         return recipes.filter((r) => {
