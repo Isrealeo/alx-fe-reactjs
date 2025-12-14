@@ -22,6 +22,7 @@ const Search = () => {
     setError("");
 
     try {
+<<<<<<< HEAD
       const nextPage = loadMore ? page + 1 : 1;
 
       const data = await fetchUserData({
@@ -37,6 +38,12 @@ const Search = () => {
       setPage(nextPage);
     } catch {
       setError("Looks like we can't find any users");
+=======
+      const data = await fetchUserData(username);
+      setUser(data);
+    } catch (err) {
+      setError("Looks like we cant find the user");
+>>>>>>> a9cbbf999695a6cd508439b0f32bb6efdf9f0b10
     } finally {
       setLoading(false);
     }
