@@ -1,13 +1,11 @@
-import React from "react";
-import Search from "./components/Search";
-import { fetchUserData } from "./services/githubService";
-
-const APP =() => {
+import react from 'react';
+import './index.css';
+export default function App() {
   return (
-    <div className="min-h-screen bg-gray-100 p-4">
-      <h1 className="text-3xl font-bold text-center mb-6">GitHub User Search</h1>
-      <Search />
+    <div className="min-h-screen flex items-center justify-center bg-gray-900">
+      <div className="text-white text-3xl font-bold p-10 rounded-xl bg-blue-600 shadow-xl">
+        Tailwind is WORKING 🚀
+      </div>
     </div>
   );
 }
-export default APP;
