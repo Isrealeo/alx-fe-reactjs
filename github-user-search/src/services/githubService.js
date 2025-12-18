@@ -1,14 +1,15 @@
 import axios from "axios";
 
-
-const BASE_URL = "https://api.github.com/search/users";
+const GITHUB_API = "https://api.github.com/search/users";
 
 export const fetchUserData = async ({
   username,
-  location,
-  minRepos,
+  location = "",
+  minRepos = "",
   page = 1,
+  perPage = 10,
 }) => {
+  // Build GitHub search query
   let query = `${username}`;
 
   if (location) {
@@ -19,13 +20,21 @@ export const fetchUserData = async ({
     query += ` repos:>=${minRepos}`;
   }
 
-  const response = await axios.get(BASE_URL, {
-    params: {
-      q: query,
-      page,
-      per_page: 6,
-    },
-  });
+  try {
+    const response = await axios.get(GITHUB_API, {
+      params: {
+        q: query,
+        page,
+        per_page: perPage,
+      },
+      headers: {
+        Accept: "application/vnd.github+json",
+      },
+    });
 
-  return response.data;
+    return response.data; // contains items[], total_count
+  } catch (error) {
+    console.error("GitHub API Error:", error);
+    throw new Error("Failed to fetch GitHub users");
+  }
 };
